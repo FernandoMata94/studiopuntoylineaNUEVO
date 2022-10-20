@@ -1,0 +1,549 @@
+$white: #ffffff;
+$black: #000000;
+$darkgray: #1d1d1b;
+$purple: #2A8FFF;
+$violet:#F93DF9;
+$blue: #162D54;
+$beige:#F1F1E6;
+$yellow:#F7C23E;
+
+
+$transition:all .5s ease;
+
+@font-face {
+  font-family: 'GothamMedium';
+  src: url("../fonts/GothamMedium.ttf"); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'GothamBook';
+  src: url("../fonts/GothamBook.ttf"); /* IE9 Compat Modes */
+}
+
+$font-size: 16;
+$max-width: 1600px;
+
+//MEDIAS
+$max: 1600px;
+$lap: 1400px;
+$lg: 1200px;
+$md: 850px;
+$sm: 580px;
+$xs: 400px;
+
+//FUNCTIONS
+@function pxtorem($px) {
+  @return #{$px/$font-size}rem;
+}
+
+@function col($n, $t: 18) {
+  @return #{(($n * 100) / $t)}#{"%"};
+}
+
+@mixin h1($color: initial, $scale: 1) {
+  font-family: 'GothamMedium', serif;
+  font-size: pxtorem(45 * $scale);
+  
+  color: $color;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  @media screen and (max-width: $lap) {
+    font-size: pxtorem(30 * $scale);
+  }
+  @media screen and (max-width: $md) {
+    font-size: pxtorem(28 * $scale);
+  }
+  @media screen and (max-width: $sm) {
+    font-size: pxtorem(24 * $scale);
+  }
+}
+
+h1 {
+  @include h1();
+  text-transform: uppercase;
+}
+
+@mixin h2($color: initial, $scale: 1) {
+  font-family: 'GothamBook', serif;
+  font-size: pxtorem(40 * $scale);
+  margin-bottom: 1rem;
+  color: $color;
+ 
+  font-weight: normal;
+  @media screen and (max-width: $lap) {
+    font-size: pxtorem(30 * $scale);
+  }
+  @media screen and (max-width: $md) {
+    font-size: pxtorem(28 * $scale);
+  }
+  @media screen and (max-width: $sm) {
+    font-size: pxtorem(24 * $scale);
+  }
+}
+
+h2 {
+  @include h2();
+}
+
+@mixin h3($color: initial, $scale: 1) {
+  font-family: 'GothamBook', serif;
+  font-size: pxtorem(18 * $scale);
+  color: $color;
+  margin: 0;
+  font-weight: normal;
+
+  @media screen and (max-width: $md) {
+    font-size: pxtorem(28 * $scale);
+  }
+  @media screen and (max-width: $sm) {
+    font-size: pxtorem(24 * $scale);
+  }
+}
+
+h3 {
+  @include h3();
+}
+
+@mixin p($color: initial, $scale: 1) {
+  font-family: 'GothamBook';
+  font-size: pxtorem(16 * $scale);
+  color: $color;
+  margin: 0;
+  font-weight: normal;
+  line-height: 2;
+  @media screen and (max-width: $md) {
+    font-size: pxtorem(16 * $scale);
+  }
+}
+
+p {
+  @include p();
+}
+
+@mixin button($bg) {
+  background: $blue;
+  font-family: "Raleway";
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $white;
+  width: 200px;
+  padding: 10px;
+  margin: 25px auto;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  &:hover {
+    background: darken;
+    transition: all 0.3s ease;
+  }
+}
+
+.button {
+  @include button($purple);
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+#mouse-circle {
+  position: absolute;
+  z-index: 9999;
+  width: 16px;
+  height: 16px;
+  background-color: $black;
+  margin: -8px 0px 0px -8px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  pointer-events: none !important;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0);
+  transition: width .5s ease, height .5s ease,background-color .5s ease;
+  &.link-grow{
+    width: 32px;
+    height: 32px;
+    margin: -16px 0px 0px -16px;
+    background-color: transparent;
+    border: 1px solid #000000;
+    transition: transform .5s ease;
+    transition: width .5s ease, height .5s ease,background-color .5s ease;
+  }
+}
+
+.vertical-margin{
+  display: block;
+  width: 100%;
+  height: 111px;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: col(18);
+  padding:0 col(1);
+  border-bottom: solid 1px black;
+  background-color: #eee;
+  &.scrolldown{
+    transform: translateY(0);
+  }
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: $max-width;
+    margin: 5px auto;
+    height: 100px;
+    .left {
+      .logo {
+        width: 130px;
+      }
+    }
+    .center{
+      display: flex;
+      p{
+        margin: 0 15px;
+      }
+    }
+  }
+
+}
+
+.responsivemenu {
+  display: none;
+  @media screen and (max-width: $md) {
+    display: block;
+  }
+}
+
+.opening{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img{
+    transition: $transition;
+    &:hover{
+      transform: scale(1.5);
+      transition: $transition;
+    }
+  }
+}
+
+.section1 {
+  width: col(18);
+  padding: col(1);
+  h1{
+    color: $white;
+    max-width: 60%;
+  }
+  p{
+    @include p($black,1);
+  }
+}
+
+.proyectos{
+  width: col(18);
+  padding: col(1);
+  h1{
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .grid{
+    display: grid;
+    max-width: 1030px;
+    margin: auto;
+    gap:25px;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    padding: 0;
+  }
+  .item{
+    width: 325px;
+    height: 325px;
+    img{
+      object-fit: cover;
+      transition: $transition;
+    }
+    &:hover{
+      img{
+        transition: $transition;
+        transform: scale(1.1)!important;
+      }
+    }
+  }
+}
+
+.casadetail{
+  width: col(18);
+  padding: col(1);
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 150px;
+  background-color: #ffffff;
+  canvas {
+    width: 100%;
+    height: 100%;
+   
+  }
+}
+
+.casa-header{
+  width: col(18);
+  padding: col(1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  .title{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .line{
+      width: 1px;
+      height: 150px;
+      background-color: $black;
+    }
+  }
+  img{
+    margin-top: -50px;
+    z-index: -1;
+  }
+}
+
+.detail-grid{
+  width: col(16);
+  margin: 0 auto 25px;
+ 
+  max-width: 1200px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3,1fr);
+  .a{
+    grid-row:1/3;
+    &.inverted{
+      grid-column: 2/3;
+    }
+  }
+ .d{
+   grid-column:1/3;
+ }
+  >div{
+    width: 100%;
+    
+    justify-self: center;
+    align-self: center;
+  }
+  img.large{
+    width: 100%;
+    height: 750px;
+    object-fit: cover;
+  }
+  img.short{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    
+  }
+}
+
+.detail-info{
+  width: col(9);
+  margin: auto;
+  padding: 0 col(1) col(1) col(1);
+  h3{
+    color: gray;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  >div{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    &:nth-last-of-type(1){
+      border-bottom: none;
+    }
+  }
+}
+
+.contacto{
+  padding: col(1);
+  h1{
+    text-align: center;
+  }
+  .cont{
+    display: flex;
+    justify-content: space-between;
+    .left{
+      width: 50%;
+    }
+    .right{
+      width: 50%;
+      padding: col(1);
+      form{
+        >div{
+          display: flex;
+          flex-direction: column;
+        }
+        label{
+          font-family: 'GothamBook';
+        }
+        input{
+          width: 250px;
+        }
+      }
+    }
+  }
+}
+
+.nosotros{
+  padding: 0 col(1);
+  h1{
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .cont{
+    display: flex;
+    justify-content: space-between;
+    .left{
+      width: 50%;
+    }
+    .right{
+      width: 50%;
+      padding: col(1);
+      p{
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+.inmobiliaria{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer{
+  width: col(18);
+  padding:25px col(1);
+  background-color: $white;
+  
+  .cont{
+    border-top:2px solid black;
+    display: flex;
+    padding-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: $md) {
+      flex-direction: column;
+      >div{
+        margin-bottom: 15px;
+      }
+    }
+    .social{
+      display: flex;
+      >a{
+        margin: 0 15px;
+        transition: $transition;
+        &:hover{
+          transform: scale(1.1);
+          transition: $transition;
+        }
+        .fb{
+          width: 15px;
+        }
+        .insta{
+          width: 22px;
+        }
+      }
+      img{
+        width: 25px;
+      }
+    }
+  }
+  p{
+    @include p($black,.9);
+  }
+}
+
+.wp{
+  width: 30px;
+  position: fixed;
+  right: 2%;
+  bottom: 40%;
+  transition: $transition;
+  &:hover{
+    transform: scale(1.1);
+    transition: $transition;
+  }
+}
+
+@keyframes cortina {
+  from {
+
+    transform: scaleY(1);
+  }
+  to {
+
+    transform: scaleY(0);
+  }
+}
+
+@keyframes opacity {
+  from {
+
+    opacity: 0;
+  }
+  to {
+
+    opacity: 1;
+  }
+}
+
+.loading-screen {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  background-color: #a7a7a7;
+  width: 0%;
+  height: 100%;
+}
+
+.load-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9999;
+  pointer-events: none;
+}

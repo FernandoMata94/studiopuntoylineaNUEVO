@@ -1,0 +1,534 @@
+@font-face {
+  font-family: "GothamMedium";
+  src: url("../fonts/GothamMedium.ttf"); /* IE9 Compat Modes */
+}
+@font-face {
+  font-family: "GothamBook";
+  src: url("../fonts/GothamBook.ttf"); /* IE9 Compat Modes */
+}
+h1 {
+  font-family: "GothamMedium", serif;
+  font-size: 2.8125rem;
+  color: initial;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 1400px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+}
+@media screen and (max-width: 850px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+h2 {
+  font-family: "GothamBook", serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: initial;
+  font-weight: normal;
+}
+@media screen and (max-width: 1400px) {
+  h2 {
+    font-size: 1.875rem;
+  }
+}
+@media screen and (max-width: 850px) {
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+h3 {
+  font-family: "GothamBook", serif;
+  font-size: 1.125rem;
+  color: initial;
+  margin: 0;
+  font-weight: normal;
+}
+@media screen and (max-width: 850px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  font-family: "GothamBook";
+  font-size: 1rem;
+  color: initial;
+  margin: 0;
+  font-weight: normal;
+  line-height: 2;
+}
+@media screen and (max-width: 850px) {
+  p {
+    font-size: 1rem;
+  }
+}
+
+.button {
+  background: #162D54;
+  font-family: "Raleway";
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  width: 200px;
+  padding: 10px;
+  margin: 25px auto;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+}
+.button:hover {
+  background: darken;
+  transition: all 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+#mouse-circle {
+  position: absolute;
+  z-index: 9999;
+  width: 16px;
+  height: 16px;
+  background-color: #000000;
+  margin: -8px 0px 0px -8px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  pointer-events: none !important;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0);
+  transition: width 0.5s ease, height 0.5s ease, background-color 0.5s ease;
+}
+#mouse-circle.link-grow {
+  width: 32px;
+  height: 32px;
+  margin: -16px 0px 0px -16px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  transition: transform 0.5s ease;
+  transition: width 0.5s ease, height 0.5s ease, background-color 0.5s ease;
+}
+
+.vertical-margin {
+  display: block;
+  width: 100%;
+  height: 111px;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  padding: 0 5.5555555556%;
+  border-bottom: solid 1px black;
+  background-color: #eee;
+}
+.nav.scrolldown {
+  transform: translateY(0);
+}
+.nav .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 1600px;
+  margin: 5px auto;
+  height: 100px;
+}
+.nav .inner .left .logo {
+  width: 130px;
+}
+.nav .inner .center {
+  display: flex;
+}
+.nav .inner .center p {
+  margin: 0 15px;
+}
+
+.responsivemenu {
+  display: none;
+}
+@media screen and (max-width: 850px) {
+  .responsivemenu {
+    display: block;
+  }
+}
+
+.opening {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.opening img {
+  transition: all 0.5s ease;
+}
+.opening img:hover {
+  transform: scale(1.5);
+  transition: all 0.5s ease;
+}
+
+.section1 {
+  width: 100%;
+  padding: 5.5555555556%;
+}
+.section1 h1 {
+  color: #ffffff;
+  max-width: 60%;
+}
+.section1 p {
+  font-family: "GothamBook";
+  font-size: 1rem;
+  color: #000000;
+  margin: 0;
+  font-weight: normal;
+  line-height: 2;
+}
+@media screen and (max-width: 850px) {
+  .section1 p {
+    font-size: 1rem;
+  }
+}
+
+.proyectos {
+  width: 100%;
+  padding: 5.5555555556%;
+}
+.proyectos h1 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.proyectos .grid {
+  display: grid;
+  max-width: 1030px;
+  margin: auto;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style: none;
+  padding: 0;
+}
+.proyectos .item {
+  width: 325px;
+  height: 325px;
+}
+.proyectos .item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.5s ease;
+}
+.proyectos .item:hover img {
+  transition: all 0.5s ease;
+  transform: scale(1.1) !important;
+}
+
+.casadetail {
+  width: 100%;
+  padding: 5.5555555556%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 150px;
+  background-color: #ffffff;
+}
+.casadetail canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.casa-header {
+  width: 100%;
+  padding: 5.5555555556%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.casa-header .title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.casa-header .title .line {
+  width: 1px;
+  height: 150px;
+  background-color: #000000;
+}
+.casa-header img {
+  margin-top: -50px;
+  z-index: -1;
+}
+
+.detail-grid {
+  width: 88.8888888889%;
+  margin: 0 auto 25px;
+  max-width: 1200px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+.detail-grid .a {
+  grid-row: 1/3;
+}
+.detail-grid .a.inverted {
+  grid-column: 2/3;
+}
+.detail-grid .d {
+  grid-column: 1/3;
+}
+.detail-grid > div {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+}
+.detail-grid img.large {
+  width: 100%;
+  height: 750px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.detail-grid img.short {
+  width: 100%;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.detail-info {
+  width: 50%;
+  margin: auto;
+  padding: 0 5.5555555556% 5.5555555556% 5.5555555556%;
+}
+.detail-info h3 {
+  color: gray;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.detail-info > div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+.detail-info > div:nth-last-of-type(1) {
+  border-bottom: none;
+}
+
+.contacto {
+  padding: 5.5555555556%;
+}
+.contacto h1 {
+  text-align: center;
+}
+.contacto .cont {
+  display: flex;
+  justify-content: space-between;
+}
+.contacto .cont .left {
+  width: 50%;
+}
+.contacto .cont .right {
+  width: 50%;
+  padding: 5.5555555556%;
+}
+.contacto .cont .right form > div {
+  display: flex;
+  flex-direction: column;
+}
+.contacto .cont .right form label {
+  font-family: "GothamBook";
+}
+.contacto .cont .right form input {
+  width: 250px;
+}
+
+.nosotros {
+  padding: 0 5.5555555556%;
+}
+.nosotros h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.nosotros .cont {
+  display: flex;
+  justify-content: space-between;
+}
+.nosotros .cont .left {
+  width: 50%;
+}
+.nosotros .cont .right {
+  width: 50%;
+  padding: 5.5555555556%;
+}
+.nosotros .cont .right p {
+  margin-bottom: 25px;
+}
+
+.inmobiliaria {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  padding: 25px 5.5555555556%;
+  background-color: #ffffff;
+}
+footer .cont {
+  border-top: 2px solid black;
+  display: flex;
+  padding-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 850px) {
+  footer .cont {
+    flex-direction: column;
+  }
+  footer .cont > div {
+    margin-bottom: 15px;
+  }
+}
+footer .cont .social {
+  display: flex;
+}
+footer .cont .social > a {
+  margin: 0 15px;
+  transition: all 0.5s ease;
+}
+footer .cont .social > a:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+footer .cont .social > a .fb {
+  width: 15px;
+}
+footer .cont .social > a .insta {
+  width: 22px;
+}
+footer .cont .social img {
+  width: 25px;
+}
+footer p {
+  font-family: "GothamBook";
+  font-size: 0.9rem;
+  color: #000000;
+  margin: 0;
+  font-weight: normal;
+  line-height: 2;
+}
+@media screen and (max-width: 850px) {
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+.wp {
+  width: 30px;
+  position: fixed;
+  right: 2%;
+  bottom: 40%;
+  transition: all 0.5s ease;
+}
+.wp:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+
+@-webkit-keyframes cortina {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes cortina {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
+  }
+}
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.loading-screen {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  background-color: #a7a7a7;
+  width: 0%;
+  height: 100%;
+}
+
+.load-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9999;
+  pointer-events: none;
+}/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,165 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Estudio Punto y Línea</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+
+
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/slick.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,300&display=swap"
+    rel="stylesheet">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="inner">
+      <div class="left">
+        <div class="logo">
+          <a href="#section1">
+            <img src="img/logo.png">
+          </a>
+        </div>
+      </div>
+      <div class="center">
+        <a href="proyectos.html"><p>Proyectos</p></a>
+        <a href="nosotros.html"><p>Nosotros</p></a>
+        <a href="inmobiliaria.html"><p>Inmobiliaria</p></a>
+        <a href="concursos.html"><p>Concursos</p></a>
+        <a href="contacto.html"><p>Contacto</p></a>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+
+  <div id="mouse-circle"></div>
+
+
+  <section class="casadetail" id="section1">
+
+    <canvas>
+
+    </canvas>
+
+  </section>
+
+
+  <footer>
+    <div class="cont">
+      <div class="left">
+        <p>Calle 33 Sur 2907 Puebla, Pue</p>
+        <p>222 260 9732</p>
+        
+      </div>
+      <div>
+        <p>contacto@estudiopuntoylinea.com        </p>
+      </div>
+      <div class="social">
+        <a href="https://www.facebook.com/studiopuntoylinea/" target="_blank">
+          <img src="img/facebook-f.svg" class="fb">
+        </a>
+        <a href="https://www.instagram.com/studiopuntoylinea/" target="_blank">
+          <img src="img/instagram.svg" class="insta">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <script type="text/javascript" src="js/slick.js"></script>
+
+  <script src="js/three.js"></script>
+  <script>
+    
+    var scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0xffffff );
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    var radius = 40;
+    var segments = 10;
+    var rings = 20;
+
+    var geometry = new THREE.SphereGeometry(radius, segments, rings);
+    var material = new THREE.MeshBasicMaterial({
+      color: 0xF3A2B0,
+      wireframe: true
+    });
+
+    var cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    camera.position.z = 150;
+
+    var render = function() {
+      requestAnimationFrame(render);
+
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+
+      renderer.render(scene, camera);
+    };
+
+    render();
+
+    
+  </script>
+
+
+<script>
+
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    let mousePosX = 0,
+        mousePosY = 0,
+        mouseCircle = document.getElementById("mouse-circle");
+  
+    document.onmousemove = (e) => {
+        mousePosX = e.pageX;
+        mousePosY = e.pageY;
+    };
+  
+    let delay = 6,
+        revisedMousePosX = 0,
+        revisedMousePosY = 0;
+  
+    function delayMouseFollow() {
+        requestAnimationFrame(delayMouseFollow);
+  
+        revisedMousePosX += (mousePosX - revisedMousePosX) / delay;
+        revisedMousePosY += (mousePosY - revisedMousePosY) / delay;
+  
+        mouseCircle.style.top = revisedMousePosY + "px";
+        mouseCircle.style.left = revisedMousePosX + "px";
+    }
+    delayMouseFollow();
+  }
+  
+  
+    </script>
+  
+
+</body>
+
+</html>
