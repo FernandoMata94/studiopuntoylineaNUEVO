@@ -7,9 +7,9 @@
   src: url("../fonts/GothamBook.ttf"); /* IE9 Compat Modes */
 }
 h1 {
-  font-family: "GothamMedium", serif;
-  font-size: 2.8125rem;
-  color: initial;
+  font-family: "GothamBook", serif;
+  font-size: 2.5rem;
+  color: #3e4242;
   margin-bottom: 1rem;
   font-weight: normal;
   text-transform: uppercase;
@@ -34,7 +34,7 @@ h2 {
   font-family: "GothamBook", serif;
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: initial;
+  color: #3e4242;
   font-weight: normal;
 }
 @media screen and (max-width: 1400px) {
@@ -56,7 +56,7 @@ h2 {
 h3 {
   font-family: "GothamBook", serif;
   font-size: 1.125rem;
-  color: initial;
+  color: #3e4242;
   margin: 0;
   font-weight: normal;
 }
@@ -74,7 +74,7 @@ h3 {
 p {
   font-family: "GothamBook";
   font-size: 1rem;
-  color: initial;
+  color: #3e4242;
   margin: 0;
   font-weight: normal;
   line-height: 2;
@@ -86,7 +86,7 @@ p {
 }
 
 .button {
-  background: #162D54;
+  background: #3e4242;
   font-family: "Raleway";
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -169,13 +169,13 @@ body {
 .nav .inner {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  max-width: 1600px;
-  margin: 5px auto;
-  height: 100px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  height: 90px;
 }
 .nav .inner .left .logo {
-  width: 130px;
+  width: 100px;
 }
 .nav .inner .center {
   display: flex;
@@ -231,7 +231,7 @@ body {
 
 .proyectos {
   width: 100%;
-  padding: 5.5555555556%;
+  padding: 0 5.5555555556% 5.5555555556% 5.5555555556%;
 }
 .proyectos h1 {
   margin-bottom: 50px;
@@ -239,16 +239,12 @@ body {
 }
 .proyectos .grid {
   display: grid;
-  max-width: 1030px;
+  max-width: 1200px;
   margin: auto;
   gap: 25px;
   grid-template-columns: 1fr 1fr 1fr;
   list-style: none;
   padding: 0;
-}
-.proyectos .item {
-  width: 325px;
-  height: 325px;
 }
 .proyectos .item img {
   -o-object-fit: cover;
@@ -307,6 +303,9 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
 }
+.detail-grid.planos > div {
+  border: 1px solid black;
+}
 .detail-grid .a {
   grid-row: 1/3;
 }
@@ -328,6 +327,108 @@ body {
      object-fit: cover;
 }
 .detail-grid img.short {
+  width: 100%;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.detail-grid__x3 {
+  width: 88.8888888889%;
+  margin: 0 auto 25px;
+  max-width: 1200px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+.detail-grid__x3.planos > div {
+  border: 1px solid black;
+}
+.detail-grid__x3 .a {
+  grid-row: 1/3;
+}
+.detail-grid__x3 .a.inverted {
+  grid-column: 2/3;
+}
+.detail-grid__x3 > div {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+}
+.detail-grid__x3 img.large {
+  width: 100%;
+  height: 750px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.detail-grid__x3 img.short {
+  width: 100%;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.detail-grid-horizontal {
+  width: 88.8888888889%;
+  margin: 0 auto 25px;
+  max-width: 1200px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(1, 1fr);
+}
+.detail-grid-horizontal.planos > div {
+  border: 1px solid black;
+}
+.detail-grid-horizontal > div {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+}
+.detail-grid-horizontal img.large {
+  width: 100%;
+  height: 750px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.detail-grid-horizontal img.short {
+  width: 100%;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.detail-grid-vertical {
+  width: 88.8888888889%;
+  margin: 0 auto 25px;
+  max-width: 1200px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+.detail-grid-vertical.planos > div {
+  border: 1px solid black;
+}
+.detail-grid-vertical > div {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+}
+.detail-grid-vertical .a {
+  grid-row: 1/3;
+}
+.detail-grid-vertical .b {
+  grid-row: 1/3;
+}
+.detail-grid-vertical img.large {
+  width: 100%;
+  height: 750px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.detail-grid-vertical img.short {
   width: 100%;
   height: 350px;
   -o-object-fit: cover;
@@ -356,7 +457,8 @@ body {
 }
 
 .contacto {
-  padding: 5.5555555556%;
+  max-width: 1200px;
+  margin: auto;
 }
 .contacto h1 {
   text-align: center;
@@ -384,7 +486,8 @@ body {
 }
 
 .nosotros {
-  padding: 0 5.5555555556%;
+  margin: auto;
+  max-width: 1200px;
 }
 .nosotros h1 {
   text-align: center;
@@ -399,7 +502,7 @@ body {
 }
 .nosotros .cont .right {
   width: 50%;
-  padding: 5.5555555556%;
+  padding-left: 45px;
 }
 .nosotros .cont .right p {
   margin-bottom: 25px;

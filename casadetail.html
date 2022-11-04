@@ -98,26 +98,23 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    var radius = 40;
-    var segments = 10;
-    var rings = 20;
 
-    var geometry = new THREE.SphereGeometry(radius, segments, rings);
-    var material = new THREE.MeshBasicMaterial({
-      color: 0xF3A2B0,
+    const geometry = new THREE.CapsuleGeometry( 1, 1, 4, 8 );
+    const material = new THREE.MeshBasicMaterial( {
+      color: 0x000000,
       wireframe: true
-    });
+    } );
+    const capsule = new THREE.Mesh( geometry, material );
 
-    var cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    scene.add(capsule);
 
-    camera.position.z = 150;
+    camera.position.z = 10;
 
     var render = function() {
       requestAnimationFrame(render);
 
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      capsule.rotation.x += 0.01;
+      capsule.rotation.y += 0.01;
 
       renderer.render(scene, camera);
     };
@@ -128,37 +125,7 @@
   </script>
 
 
-<script>
 
-  if (window.matchMedia("(min-width: 768px)").matches) {
-    let mousePosX = 0,
-        mousePosY = 0,
-        mouseCircle = document.getElementById("mouse-circle");
-  
-    document.onmousemove = (e) => {
-        mousePosX = e.pageX;
-        mousePosY = e.pageY;
-    };
-  
-    let delay = 6,
-        revisedMousePosX = 0,
-        revisedMousePosY = 0;
-  
-    function delayMouseFollow() {
-        requestAnimationFrame(delayMouseFollow);
-  
-        revisedMousePosX += (mousePosX - revisedMousePosX) / delay;
-        revisedMousePosY += (mousePosY - revisedMousePosY) / delay;
-  
-        mouseCircle.style.top = revisedMousePosY + "px";
-        mouseCircle.style.left = revisedMousePosX + "px";
-    }
-    delayMouseFollow();
-  }
-  
-  
-    </script>
-  
 
 </body>
 
