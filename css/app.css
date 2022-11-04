@@ -320,6 +320,10 @@ body {
   justify-self: center;
   align-self: center;
 }
+.detail-grid > div img.contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .detail-grid img.large {
   width: 100%;
   height: 750px;
@@ -355,6 +359,10 @@ body {
   width: 100%;
   justify-self: center;
   align-self: center;
+}
+.detail-grid__x3 > div img.contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .detail-grid__x3 img.large {
   width: 100%;
@@ -415,6 +423,10 @@ body {
   width: 100%;
   justify-self: center;
   align-self: center;
+}
+.detail-grid-vertical > div img.contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .detail-grid-vertical .a {
   grid-row: 1/3;
