@@ -160,8 +160,8 @@ body {
   z-index: 999;
   width: 100%;
   padding: 0 5.5555555556%;
-  border-bottom: solid 1px black;
-  background-color: #eee;
+  border-bottom: solid 1px #bebebe;
+  background-color: white;
 }
 .nav.scrolldown {
   transform: translateY(0);
@@ -181,7 +181,18 @@ body {
   display: flex;
 }
 .nav .inner .center p {
+  font-family: "GothamBook";
+  font-size: 1rem;
+  color: #3e4242;
+  margin: 0;
+  font-weight: normal;
+  line-height: 2;
   margin: 0 15px;
+}
+@media screen and (max-width: 850px) {
+  .nav .inner .center p {
+    font-size: 1rem;
+  }
 }
 
 .responsivemenu {
@@ -208,17 +219,14 @@ body {
 }
 
 .section1 {
-  width: 100%;
-  padding: 5.5555555556%;
-}
-.section1 h1 {
-  color: #ffffff;
-  max-width: 60%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 0 50px 0;
 }
 .section1 p {
   font-family: "GothamBook";
   font-size: 1rem;
-  color: #000000;
+  color: #3e4242;
   margin: 0;
   font-weight: normal;
   line-height: 2;
@@ -226,6 +234,29 @@ body {
 @media screen and (max-width: 850px) {
   .section1 p {
     font-size: 1rem;
+  }
+}
+.section1 .slider a.info {
+  padding: 25px;
+  width: 350px;
+  height: 130px;
+  border: 1px solid #bebebe;
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  background-color: #ffffff;
+}
+.section1 .slider a.info .pagination {
+  font-family: "GothamBook";
+  font-size: 0.8rem;
+  color: #bebebe;
+  margin: 0;
+  font-weight: normal;
+  line-height: 2;
+}
+@media screen and (max-width: 850px) {
+  .section1 .slider a.info .pagination {
+    font-size: 0.8rem;
   }
 }
 
@@ -285,6 +316,7 @@ body {
   flex-direction: column;
 }
 .casa-header .title .line {
+  margin-top: 15px;
   width: 1px;
   height: 150px;
   background-color: #000000;
@@ -304,7 +336,7 @@ body {
   grid-template-rows: repeat(3, 1fr);
 }
 .detail-grid.planos > div {
-  border: 1px solid black;
+  border: 1px solid #bebebe;
 }
 .detail-grid .a {
   grid-row: 1/3;
@@ -347,7 +379,7 @@ body {
   grid-template-rows: repeat(2, 1fr);
 }
 .detail-grid__x3.planos > div {
-  border: 1px solid black;
+  border: 1px solid #bebebe;
 }
 .detail-grid__x3 .a {
   grid-row: 1/3;
@@ -387,7 +419,7 @@ body {
   grid-template-rows: repeat(1, 1fr);
 }
 .detail-grid-horizontal.planos > div {
-  border: 1px solid black;
+  border: 1px solid #bebebe;
 }
 .detail-grid-horizontal > div {
   width: 100%;
@@ -417,7 +449,7 @@ body {
   grid-template-rows: repeat(2, 1fr);
 }
 .detail-grid-vertical.planos > div {
-  border: 1px solid black;
+  border: 1px solid #bebebe;
 }
 .detail-grid-vertical > div {
   width: 100%;
@@ -460,7 +492,7 @@ body {
 .detail-info > div {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #bebebe;
   margin-bottom: 15px;
   padding-bottom: 15px;
 }
@@ -471,30 +503,65 @@ body {
 .contacto {
   max-width: 1200px;
   margin: auto;
+  height: 90vh;
 }
 .contacto h1 {
   text-align: center;
+  margin-bottom: 50px;
 }
 .contacto .cont {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 .contacto .cont .left {
   width: 50%;
 }
-.contacto .cont .right {
-  width: 50%;
-  padding: 5.5555555556%;
+.contacto .cont .right form .row {
+  display: flex;
 }
-.contacto .cont .right form > div {
+.contacto .cont .right form .row > div {
   display: flex;
   flex-direction: column;
+  margin-right: 15px;
+}
+.contacto .cont .right form .row > div label {
+  margin-bottom: 15px;
+}
+.contacto .cont .right form .row:last-of-type {
+  margin-bottom: 15px;
+}
+.contacto .cont .right form .row:last-of-type > div {
+  width: 100%;
 }
 .contacto .cont .right form label {
   font-family: "GothamBook";
 }
 .contacto .cont .right form input {
   width: 250px;
+}
+
+.concursos {
+  margin: auto;
+  max-width: 1200px;
+}
+.concursos h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.concursos .cont {
+  display: flex;
+  justify-content: space-between;
+}
+.concursos .cont .left {
+  width: 50%;
+}
+.concursos .cont .right {
+  width: 50%;
+  padding-left: 45px;
+}
+.concursos .cont .right p {
+  margin-bottom: 25px;
 }
 
 .nosotros {
@@ -529,12 +596,14 @@ body {
 }
 
 footer {
-  width: 100%;
-  padding: 25px 5.5555555556%;
+  width: 88.8888888889%;
+  margin: 25px 5.5555555556%;
   background-color: #ffffff;
+  border-top: 1px solid #bebebe;
 }
 footer .cont {
-  border-top: 2px solid black;
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   padding-top: 15px;
   justify-content: space-between;
@@ -571,7 +640,7 @@ footer .cont .social img {
 footer p {
   font-family: "GothamBook";
   font-size: 0.9rem;
-  color: #000000;
+  color: #3e4242;
   margin: 0;
   font-weight: normal;
   line-height: 2;
@@ -585,7 +654,7 @@ footer p {
 .wp {
   width: 30px;
   position: fixed;
-  right: 2%;
+  right: 5.5555555556%;
   bottom: 40%;
   transition: all 0.5s ease;
 }

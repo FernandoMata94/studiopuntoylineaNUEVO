@@ -196,8 +196,9 @@ body {
   z-index: 999;
   width: col(18);
   padding:0 col(1);
-  border-bottom: solid 1px black;
-  background-color: #eee;
+  border-bottom: solid 1px $lightgray;
+  //background-color: #eee;
+  background-color: white;
   &.scrolldown{
     transform: translateY(0);
   }
@@ -216,6 +217,7 @@ body {
     .center{
       display: flex;
       p{
+        @include p($darkgray,1);
         margin: 0 15px;
       }
     }
@@ -245,14 +247,29 @@ body {
 }
 
 .section1 {
-  width: col(18);
-  padding: col(1);
-  h1{
-    color: $white;
-    max-width: 60%;
-  }
+  max-width: $max-width;
+  margin: auto;
+  padding: 50px 0 50px 0;
+
   p{
-    @include p($black,1);
+    @include p($darkgray,1);
+  }
+  .slider{
+
+    a.info{
+      padding: 25px;
+      width: 350px;
+      height: 130px;
+      border: 1px solid $lightgray;
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      background-color: $white;
+      .pagination{
+          @include p ($lightgray,.8)
+      }
+    }
+    
   }
 }
 
@@ -317,6 +334,7 @@ body {
     align-items: center;
     flex-direction: column;
     .line{
+      margin-top: 15px;
       width: 1px;
       height: 150px;
       background-color: $black;
@@ -339,7 +357,7 @@ body {
 
   &.planos{
     >div{
-      border: 1px solid black;
+      border: 1px solid $lightgray;
     }
   }
   .a{
@@ -383,7 +401,7 @@ body {
   grid-template-rows: repeat(2,1fr);
   &.planos{
     >div{
-      border: 1px solid black;
+      border: 1px solid $lightgray;
     }
   }
   .a{
@@ -425,7 +443,7 @@ body {
   grid-template-rows: repeat(1,1fr);
   &.planos{
     >div{
-      border: 1px solid black;
+      border: 1px solid $lightgray;
     }
   }
   >div{
@@ -457,7 +475,7 @@ body {
   grid-template-rows: repeat(2,1fr);
   &.planos{
     >div{
-      border: 1px solid black;
+      border: 1px solid $lightgray;
     }
   }
   >div{
@@ -501,7 +519,7 @@ body {
   >div{
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $lightgray;
     margin-bottom: 15px;
     padding-bottom: 15px;
     &:nth-last-of-type(1){
@@ -513,8 +531,54 @@ body {
 .contacto{
   max-width: $max-width;
   margin: auto;
+  height: 90vh;
   h1{
     text-align: center;
+    margin-bottom: 50px;
+  }
+  .cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .left{
+      width: 50%;
+    }
+    .right{
+      form{
+        .row{
+          display: flex;
+          >div{
+            display: flex;flex-direction: column;
+            margin-right: 15px;
+            label{
+              margin-bottom: 15px;
+            }
+          }
+          &:last-of-type{
+              >div{
+                width: 100%;
+              }
+              margin-bottom: 15px;
+          }
+        }
+
+        label{
+          font-family: 'GothamBook';
+        }
+        input{
+          width: 250px;
+        }
+      }
+    }
+  }
+}
+
+.concursos{
+  margin: auto;
+  max-width: $max-width;
+  h1{
+    text-align: center;
+    margin-bottom: 50px;
   }
   .cont{
     display: flex;
@@ -524,18 +588,9 @@ body {
     }
     .right{
       width: 50%;
-      padding: col(1);
-      form{
-        >div{
-          display: flex;
-          flex-direction: column;
-        }
-        label{
-          font-family: 'GothamBook';
-        }
-        input{
-          width: 250px;
-        }
+      padding-left: 45px;
+      p{
+        margin-bottom: 25px;
       }
     }
   }
@@ -573,12 +628,13 @@ body {
 }
 
 footer{
-  width: col(18);
-  padding:25px col(1);
+  width: col(16);
+  margin:25px col(1);
   background-color: $white;
-  
+  border-top:1px solid $lightgray;
   .cont{
-    border-top:2px solid black;
+    max-width: $max-width;
+    margin: auto;
     display: flex;
     padding-top: 15px;
     justify-content: space-between;
@@ -611,14 +667,14 @@ footer{
     }
   }
   p{
-    @include p($black,.9);
+    @include p($darkgray,.9);
   }
 }
 
 .wp{
   width: 30px;
   position: fixed;
-  right: 2%;
+  right: col(1);
   bottom: 40%;
   transition: $transition;
   &:hover{
