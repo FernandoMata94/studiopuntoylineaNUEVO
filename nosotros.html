@@ -65,7 +65,7 @@
     
     <div class="cont">
       <div class="left">
-        <img src="img/proyectos/estudioSPL/1.jpg">
+        <canvas class="webgl"></canvas>
       </div>
       <div class="right">
         <p>Somos un estudio de diseño que busca resolver y configurar el espacio equilibrando la función con la belleza estética, generando espacios habitables basados en la armonía por medio de la materialidad, el simbolismo escultórico y la honestidad de los elementos naturales del entorno, creemos que la arquitectura es una herramienta para sentir, inspirar y generar espacios únicos que relatan historias a través de los usuarios.</p>
@@ -129,9 +129,56 @@
   </script>
   <script src="js/rellax.min.js"></script>
 
+  <script src="js/three.js"></script>
   <script>
+    // Canvas
+    const canvas = document.querySelector('canvas.webgl')
 
+    // Sizes
+    const sizes = {
+        width: 800,
+        height: 600
+    }
 
+    // Scene
+    const scene = new THREE.Scene()
+    scene.background = new THREE.Color( 0xffffff );
+    // Object
+    const geometry = new THREE.CapsuleGeometry( 1, 1, 4, 8 );
+    const material = new THREE.MeshBasicMaterial( {
+      color: 0x000000,
+      wireframe: true
+    } );
+    const capsule = new THREE.Mesh( geometry, material );
+
+    scene.add(capsule);
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
+    camera.position.z = 3
+    scene.add(camera)
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha:true
+    })
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.render(scene, camera)
+
+    //animacion? creo 
+    var render = function() {
+      requestAnimationFrame(render);
+
+      capsule.rotation.x += 0.01;
+      capsule.rotation.y += 0.01;
+
+      renderer.render(scene, camera);
+    };
+
+    render();
+
+    
   </script>
 
 </body>
