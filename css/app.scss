@@ -187,16 +187,17 @@ body {
   display: block;
   width: 100%;
   height: 111px;
+  display: none;
 }
 
 .nav {
-  position: fixed;
+  //position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
   width: col(18);
   padding:0 col(1);
-  border-bottom: solid 1px $lightgray;
+  //border-bottom: solid 1px $lightgray;
   //background-color: #eee;
   background-color: white;
   &.scrolldown{
@@ -223,6 +224,54 @@ body {
     }
   }
 
+}
+
+footer{
+  width: col(16);
+  margin:25px col(1);
+  background-color: $white;
+  //border-top:1px solid $lightgray;
+  .cont{
+    max-width: $max-width;
+    margin: auto;
+    display: flex;
+    padding-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: $md) {
+      flex-direction: column;
+      >div{
+        margin-bottom: 15px;
+      }
+    }
+    .social{
+      display: flex;
+      >a{
+        margin: 0 10px;
+        transition: $transition;
+        &:hover{
+          transform: scale(1.1);
+          transition: $transition;
+        }
+        .fb{
+          width: 15px;
+        }
+        .insta{
+          width: 22px;
+        }
+        .wp{
+          animation: bounce 2s ease-in-out infinite alternate;
+         
+        }
+      }
+      img{
+        width: 25px;
+      }
+    }
+  }
+  p{
+    @include p($darkgray,.9);
+  }
 }
 
 .responsivemenu {
@@ -572,7 +621,7 @@ body {
 }
 
 .concursos{
-  margin: auto;
+  margin: 50px auto;
   max-width: $max-width;
   h1{
     text-align: center;
@@ -595,7 +644,7 @@ body {
 }
 
 .nosotros{
-  margin: auto;
+  margin: 50px auto;
   max-width: $max-width;
   h1{
     text-align: center;
@@ -623,6 +672,24 @@ body {
   }
 }
 
+.nosotros-header{
+  width: col(18);
+  padding: 50px col(1) col(1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  .title{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  h3{
+    margin-bottom: 25px;
+  }
+}
+
 .inmobiliaria{
   height: 100vh;
   display: flex;
@@ -631,61 +698,6 @@ body {
   align-items: center;
 }
 
-footer{
-  width: col(16);
-  margin:25px col(1);
-  background-color: $white;
-  border-top:1px solid $lightgray;
-  .cont{
-    max-width: $max-width;
-    margin: auto;
-    display: flex;
-    padding-top: 15px;
-    justify-content: space-between;
-    align-items: center;
-    @media screen and (max-width: $md) {
-      flex-direction: column;
-      >div{
-        margin-bottom: 15px;
-      }
-    }
-    .social{
-      display: flex;
-      >a{
-        margin: 0 15px;
-        transition: $transition;
-        &:hover{
-          transform: scale(1.1);
-          transition: $transition;
-        }
-        .fb{
-          width: 15px;
-        }
-        .insta{
-          width: 22px;
-        }
-      }
-      img{
-        width: 25px;
-      }
-    }
-  }
-  p{
-    @include p($darkgray,.9);
-  }
-}
-
-.wp{
-  width: 30px;
-  position: fixed;
-  right: col(1);
-  bottom: 40%;
-  transition: $transition;
-  &:hover{
-    transform: scale(1.1);
-    transition: $transition;
-  }
-}
 
 @keyframes cortina {
   from {
@@ -698,15 +710,18 @@ footer{
   }
 }
 
-@keyframes opacity {
+@keyframes opacity1 {
   from {
-
-    opacity: 0;
+    opacity: 0
   }
   to {
-
-    opacity: 1;
+    opacity: 1
   }
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
 }
 
 .loading-screen {
@@ -729,3 +744,4 @@ footer{
   z-index: 9999;
   pointer-events: none;
 }
+
