@@ -32,7 +32,7 @@ h1 {
 
 h2 {
   font-family: "GothamBook", serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: #3e4242;
   font-weight: normal;
@@ -55,19 +55,19 @@ h2 {
 
 h3 {
   font-family: "GothamBook", serif;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   color: #3e4242;
   margin: 0;
   font-weight: normal;
 }
 @media screen and (max-width: 850px) {
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.125rem;
   }
 }
 @media screen and (max-width: 580px) {
   h3 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -85,20 +85,20 @@ p {
   }
 }
 
-.button {
+.btn {
   background: #3e4242;
   font-family: "Raleway";
   text-transform: uppercase;
+  border: none;
   letter-spacing: 1px;
   color: #ffffff;
   width: 200px;
   padding: 10px;
-  margin: 25px auto;
   cursor: pointer;
   display: block;
   text-align: center;
 }
-.button:hover {
+.btn:hover {
   background: darken;
   transition: all 0.3s ease;
 }
@@ -323,7 +323,7 @@ footer p {
 
 .proyectos {
   width: 100%;
-  padding: 0 5.5555555556% 5.5555555556% 5.5555555556%;
+  padding: 50px 5.5555555556% 5.5555555556% 5.5555555556%;
 }
 .proyectos h1 {
   margin-bottom: 50px;
@@ -337,6 +337,31 @@ footer p {
   grid-template-columns: 1fr 1fr 1fr;
   list-style: none;
   padding: 0;
+}
+.proyectos .item {
+  position: relative;
+}
+.proyectos .item .overlay {
+  position: absolute;
+  padding: 5.5555555556%;
+  background: rgba(195, 195, 195, 0.75);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.proyectos .item .overlay h3 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+.proyectos .item .overlay p {
+  color: #fff;
+}
+.proyectos .item:hover .overlay {
+  opacity: 1;
 }
 .proyectos .item img {
   -o-object-fit: cover;
@@ -559,8 +584,8 @@ footer p {
 
 .contacto {
   max-width: 1200px;
-  margin: auto;
-  height: 90vh;
+  margin: 50px auto 0;
+  height: 70vh;
 }
 .contacto h1 {
   text-align: center;
@@ -573,6 +598,10 @@ footer p {
 }
 .contacto .cont .left {
   width: 50%;
+}
+.contacto .cont .right h2 {
+  margin-top: 0;
+  margin-bottom: 35px;
 }
 .contacto .cont .right form .row {
   display: flex;
@@ -594,8 +623,13 @@ footer p {
 .contacto .cont .right form label {
   font-family: "GothamBook";
 }
-.contacto .cont .right form input {
+.contacto .cont .right form input, .contacto .cont .right form textarea {
   width: 250px;
+  border-width: 0 0 1px;
+  border-color: #3e4242;
+}
+.contacto .cont .right form .btn {
+  margin-top: 50px;
 }
 
 .concursos {
@@ -669,11 +703,24 @@ footer p {
 }
 
 .inmobiliaria {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.galeria {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  display: flex;
+  align-items: center;
+}
+.galeria .left {
+  width: 44.4444444444%;
+}
+.galeria .right {
+  width: 55.5555555556%;
 }
 
 @-webkit-keyframes cortina {

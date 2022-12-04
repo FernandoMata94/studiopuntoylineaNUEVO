@@ -61,7 +61,7 @@ h1 {
 
 @mixin h2($color: initial, $scale: 1) {
   font-family: 'GothamBook', serif;
-  font-size: pxtorem(40 * $scale);
+  font-size: pxtorem(32 * $scale);
   margin-bottom: 1rem;
   color: $color;
  
@@ -83,16 +83,16 @@ h2 {
 
 @mixin h3($color: initial, $scale: 1) {
   font-family: 'GothamBook', serif;
-  font-size: pxtorem(18 * $scale);
+  font-size: pxtorem(24 * $scale);
   color: $color;
   margin: 0;
   font-weight: normal;
 
   @media screen and (max-width: $md) {
-    font-size: pxtorem(28 * $scale);
+    font-size: pxtorem(18 * $scale);
   }
   @media screen and (max-width: $sm) {
-    font-size: pxtorem(24 * $scale);
+    font-size: pxtorem(16 * $scale);
   }
 }
 
@@ -120,11 +120,12 @@ p {
   background: $darkgray;
   font-family: "Raleway";
   text-transform: uppercase;
+  border: none;
   letter-spacing: 1px;
   color: $white;
   width: 200px;
   padding: 10px;
-  margin: 25px auto;
+  
   cursor: pointer;
   display: block;
   text-align: center;
@@ -134,7 +135,7 @@ p {
   }
 }
 
-.button {
+.btn {
   @include button($darkgray);
 }
 
@@ -327,7 +328,7 @@ footer{
 
 .proyectos{
   width: col(18);
-  padding: 0 col(1) col(1) col(1);
+  padding: 50px col(1) col(1) col(1);
   h1{
     margin-bottom: 50px;
     text-align: center;
@@ -342,8 +343,31 @@ footer{
     padding: 0;
   }
   .item{
-    //width: 325px;
-    //height: 325px;
+    position: relative;
+    .overlay{
+      position: absolute;
+      padding: col(1);
+      background: rgb(195 195 195 / 75%);
+      left: 0;
+      top: 0; 
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: all .5s ease;
+      h3{
+        margin-bottom: 10px;
+        color: #fff;
+      }
+      p{
+        color: #fff;
+      }
+    }
+    &:hover{
+      .overlay{
+          opacity: 1;
+      }
+    } 
     img{
       object-fit: cover;
       transition: $transition;
@@ -577,8 +601,8 @@ footer{
 
 .contacto{
   max-width: $max-width;
-  margin: auto;
-  height: 90vh;
+  margin: 50px auto 0;
+  height: 70vh;
   h1{
     text-align: center;
     margin-bottom: 50px;
@@ -591,6 +615,10 @@ footer{
       width: 50%;
     }
     .right{
+      h2{
+        margin-top: 0;
+        margin-bottom: 35px;
+      }
       form{
         .row{
           display: flex;
@@ -612,8 +640,13 @@ footer{
         label{
           font-family: 'GothamBook';
         }
-        input{
+        input,textarea{
           width: 250px;
+          border-width: 0 0 1px;
+          border-color: $darkgray;
+        }
+        .btn{
+          margin-top: 50px;
         }
       }
     }
@@ -691,13 +724,26 @@ footer{
 }
 
 .inmobiliaria{
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.galeria{
+  max-width: $max-width;
+  margin: 50px auto 0;
+  
+  display: flex;
+  align-items: center;
+  .left{
+    width: col(8);
+  }
+  .right{
+    width: col(10);
+  }
+}
 
 @keyframes cortina {
   from {
