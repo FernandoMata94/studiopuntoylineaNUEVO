@@ -1,19 +1,21 @@
 $white: #ffffff;
 $black: #000000;
 $darkgray: #3e4242;
-$gray:#72767a;
-$lightgray:#bebebe;
+$gray: #72767a;
+$lightgray: #bebebe;
 
-$transition:all .5s ease;
+$transition: all .5s ease;
 
 @font-face {
   font-family: 'GothamMedium';
-  src: url("../fonts/GothamMedium.ttf"); /* IE9 Compat Modes */
+  src: url("../fonts/GothamMedium.ttf");
+  /* IE9 Compat Modes */
 }
 
 @font-face {
   font-family: 'GothamBook';
-  src: url("../fonts/GothamBook.ttf"); /* IE9 Compat Modes */
+  src: url("../fonts/GothamBook.ttf");
+  /* IE9 Compat Modes */
 }
 
 $font-size: 16;
@@ -39,51 +41,57 @@ $xs: 400px;
 @mixin h1($color: initial, $scale: 1) {
   font-family: 'GothamBook', serif;
   font-size: pxtorem(40 * $scale);
-  
+
   color: $color;
   margin-bottom: 1rem;
   font-weight: normal;
+
   @media screen and (max-width: $lap) {
     font-size: pxtorem(30 * $scale);
   }
+
   @media screen and (max-width: $md) {
     font-size: pxtorem(28 * $scale);
   }
+
   @media screen and (max-width: $sm) {
     font-size: pxtorem(24 * $scale);
   }
 }
 
 h1 {
-  @include h1($darkgray,1);
+  @include h1($darkgray, 1);
   text-transform: uppercase;
 }
 
 @mixin h2($color: initial, $scale: 1) {
   font-family: 'GothamBook', serif;
-  font-size: pxtorem(32 * $scale);
+  font-size: pxtorem(36 * $scale);
   margin-bottom: 1rem;
   color: $color;
- 
+
   font-weight: normal;
+
   @media screen and (max-width: $lap) {
     font-size: pxtorem(30 * $scale);
   }
+
   @media screen and (max-width: $md) {
     font-size: pxtorem(28 * $scale);
   }
+
   @media screen and (max-width: $sm) {
     font-size: pxtorem(24 * $scale);
   }
 }
 
 h2 {
-  @include h2($darkgray,1);
+  @include h2($darkgray, 1);
 }
 
 @mixin h3($color: initial, $scale: 1) {
   font-family: 'GothamBook', serif;
-  font-size: pxtorem(24 * $scale);
+  font-size: pxtorem(20 * $scale);
   color: $color;
   margin: 0;
   font-weight: normal;
@@ -91,13 +99,14 @@ h2 {
   @media screen and (max-width: $md) {
     font-size: pxtorem(18 * $scale);
   }
+
   @media screen and (max-width: $sm) {
     font-size: pxtorem(16 * $scale);
   }
 }
 
 h3 {
-  @include h3($darkgray,1);
+  @include h3($darkgray, 1);
 }
 
 @mixin p($color: initial, $scale: 1) {
@@ -107,13 +116,14 @@ h3 {
   margin: 0;
   font-weight: normal;
   line-height: 2;
+
   @media screen and (max-width: $md) {
     font-size: pxtorem(16 * $scale);
   }
 }
 
 p {
-  @include p($darkgray,1);
+  @include p($darkgray, 1);
 }
 
 @mixin button($bg) {
@@ -125,10 +135,11 @@ p {
   color: $white;
   width: 200px;
   padding: 10px;
-  
+
   cursor: pointer;
   display: block;
   text-align: center;
+
   &:hover {
     background: darken;
     transition: all 0.3s ease;
@@ -172,19 +183,20 @@ body {
   border-radius: 50%;
   pointer-events: none !important;
   box-shadow: 0 0 16px rgba(255, 255, 255, 0);
-  transition: width .5s ease, height .5s ease,background-color .5s ease;
-  &.link-grow{
+  transition: width .5s ease, height .5s ease, background-color .5s ease;
+
+  &.link-grow {
     width: 32px;
     height: 32px;
     margin: -16px 0px 0px -16px;
     background-color: transparent;
     border: 1px solid #000000;
     transition: transform .5s ease;
-    transition: width .5s ease, height .5s ease,background-color .5s ease;
+    transition: width .5s ease, height .5s ease, background-color .5s ease;
   }
 }
 
-.vertical-margin{
+.vertical-margin {
   display: block;
   width: 100%;
   height: 111px;
@@ -197,99 +209,117 @@ body {
   left: 0;
   z-index: 999;
   width: col(18);
-  padding:0 col(1);
+  padding: 0 col(1);
   //border-bottom: solid 1px $lightgray;
   //background-color: #eee;
   background-color: white;
-  &.scrolldown{
+
+  &.scrolldown {
     transform: translateY(0);
   }
+
   .inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: $max-width;
-    margin:auto;
+    margin: auto;
     height: 90px;
+
     .left {
       .logo {
-        width: 100px;
+        width: 200px;
       }
     }
-    .center{
+
+    .center {
       display: flex;
-      p{
-        @include p($darkgray,1);
+
+      p {
+        @include p($darkgray, 1);
         margin: 0 15px;
+      }
+
+      .wp {
+        width: 22px;
+        animation: bounce 2s ease-in-out infinite alternate;
       }
     }
   }
-
 }
 
-footer{
+footer {
   width: col(16);
-  margin:25px col(1);
+  margin: 25px col(1);
   background-color: $white;
+
   //border-top:1px solid $lightgray;
-  .cont{
+  .cont {
     max-width: $max-width;
     margin: auto;
     display: flex;
     padding-top: 15px;
     justify-content: space-between;
     align-items: center;
+
     @media screen and (max-width: $md) {
       flex-direction: column;
-      >div{
+
+      >div {
         margin-bottom: 15px;
       }
     }
-    .social{
+
+    .social {
       display: flex;
-      >a{
+
+      >a {
         margin: 0 10px;
         transition: $transition;
-        &:hover{
+
+        &:hover {
           transform: scale(1.1);
           transition: $transition;
         }
-        .fb{
+
+        .fb {
           width: 15px;
         }
-        .insta{
+
+        .insta {
           width: 22px;
         }
-        .wp{
-          animation: bounce 2s ease-in-out infinite alternate;
-         
-        }
       }
-      img{
+
+      img {
         width: 25px;
       }
     }
   }
-  p{
-    @include p($darkgray,.9);
+
+  p {
+    @include p($darkgray, .9);
   }
 }
 
 .responsivemenu {
   display: none;
+
   @media screen and (max-width: $md) {
     display: block;
   }
 }
 
-.opening{
+.opening {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  img{
+
+  img {
     transition: $transition;
-    &:hover{
+
+    &:hover {
       transform: scale(1.5);
       transition: $transition;
     }
@@ -301,12 +331,21 @@ footer{
   margin: auto;
   padding: 50px 0 50px 0;
 
-  p{
-    @include p($darkgray,1);
+  p {
+    @include p($darkgray, 1);
   }
-  .slider{
 
-    a.info{
+  .slider {
+    >div:hover {
+      a.info {
+        opacity: 1;
+
+      }
+    }
+
+    a.info {
+      transition: $transition;
+      opacity: 0;
       padding: 25px;
       width: 350px;
       height: 130px;
@@ -315,76 +354,59 @@ footer{
       right: 0;
       bottom: 4px;
       background-color: $white;
-      h3{
+
+      h3 {
         color: $black;
       }
-      .pagination{
-          @include p ($lightgray,.8)
+
+      .pagination {
+        @include p ($lightgray, .8)
       }
     }
 
   }
 }
 
-.proyectos{
+.proyectos {
   width: col(18);
   padding: 50px col(1) col(1) col(1);
-  h1{
-    margin-bottom: 50px;
-    text-align: center;
+
+  h3 {
+    margin-top: 15px;
+
   }
-  .grid{
+
+  .grid {
     display: grid;
     max-width: $max-width;
     margin: auto;
-    gap:25px;
+    gap: 25px;
     grid-template-columns: 1fr 1fr 1fr;
     list-style: none;
     padding: 0;
   }
-  .item{
+
+  .item {
     position: relative;
-    .overlay{
-      position: absolute;
-      padding: col(1);
-      background: rgb(195 195 195 / 75%);
-      left: 0;
-      top: 0; 
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      opacity: 0;
-      transition: all .5s ease;
-      h3{
-        margin-bottom: 10px;
-        color: #fff;
-      }
-      p{
-        color: #fff;
-      }
-    }
-    &:hover{
-      .overlay{
-          opacity: 1;
-      }
-    } 
-    img{
+
+    img {
       object-fit: cover;
       transition: $transition;
     }
-    &:hover{
-      img{
+
+    &:hover {
+      img {
         transition: $transition;
-        transform: scale(1.1)!important;
+        transform: scale(1.1) !important;
       }
     }
   }
 }
 
-.casadetail{
+.casadetail {
   width: col(18);
   padding: col(1);
-  
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -392,260 +414,327 @@ footer{
   background-color: #ffffff;
 }
 
-.casa-header{
+.casa-header {
   width: col(18);
-  padding: 0 col(1) col(1);
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   flex-direction: column;
+  padding-bottom: col(1);
   align-items: center;
   justify-content: center;
   margin-bottom: 25px;
-  .title{
+
+  .title {
     display: flex;
     align-items: center;
     flex-direction: column;
-    .line{
+
+    .line {
       margin-top: 15px;
       width: 1px;
       height: 150px;
       background-color: $black;
     }
   }
-  img{
+
+  img {
     margin-top: -50px;
     z-index: -1;
   }
 }
 
-.detail-grid{
+.detail-grid {
   width: col(16);
   margin: 0 auto 25px;
   max-width: 1200px;
   display: grid;
   gap: 25px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3,1fr);
+  grid-template-rows: repeat(3, 1fr);
 
-  &.planos{
-    >div{
+  &.planos {
+    >div {
       border: 1px solid $lightgray;
     }
   }
-  .a{
-    grid-row:1/3;
-    &.inverted{
+
+  .a {
+    grid-row: 1/3;
+
+    &.inverted {
       grid-column: 2/3;
     }
   }
- .d{
-   grid-column:1/3;
- }
-  >div{
+
+  .d {
+    grid-column: 1/3;
+  }
+
+  >div {
     width: 100%;
     justify-self: center;
     align-self: center;
-    img{
-      &.contain{
+
+    img {
+      &.contain {
         object-fit: contain;
       }
     }
   }
-  img.large{
+
+  img.large {
     width: 100%;
     height: 750px;
     object-fit: cover;
   }
-  img.short{
+
+  img.short {
     width: 100%;
     height: 350px;
     object-fit: cover;
   }
 }
 
-.detail-grid__x3{
+.detail-grid__x3 {
   width: col(16);
   margin: 0 auto 25px;
   max-width: 1200px;
   display: grid;
   gap: 25px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(2,1fr);
-  &.planos{
-    >div{
+  grid-template-rows: repeat(2, 1fr);
+
+  &.planos {
+    >div {
       border: 1px solid $lightgray;
     }
   }
-  .a{
-    grid-row:1/3;
-    &.inverted{
+
+  .a {
+    grid-row: 1/3;
+
+    &.inverted {
       grid-column: 2/3;
     }
   }
-  >div{
+
+  >div {
     width: 100%;
     justify-self: center;
     align-self: center;
-    img{
-      &.contain{
+
+    img {
+      &.contain {
         object-fit: contain;
       }
     }
   }
-  img.large{
+
+  img.large {
     width: 100%;
     height: 750px;
     object-fit: cover;
   }
-  img.short{
+
+  img.short {
     width: 100%;
     height: 350px;
     object-fit: cover;
-    
+
   }
 }
 
-.detail-grid-horizontal{
+/*grid bueno*/
+.grid__x3__inverted {
+  width: col(16);
+  margin: 0 auto 25px;
+  display: grid;
+  max-width: $max-width;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  .a,.b, .c {
+    img {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  .c {
+    grid-column: 2/3;
+    grid-row: 1/3;
+  }
+}
+
+.detail-grid-horizontal {
   width: col(16);
   margin: 0 auto 25px;
   max-width: 1200px;
   display: grid;
   gap: 25px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(1,1fr);
-  &.planos{
-    >div{
+  grid-template-rows: repeat(1, 1fr);
+
+  &.planos {
+    >div {
       border: 1px solid $lightgray;
     }
   }
-  >div{
-    width: 100%; 
+
+  >div {
+    width: 100%;
     justify-self: center;
     align-self: center;
-    
+
   }
-  img.large{
+
+  img.large {
     width: 100%;
     height: 750px;
     object-fit: cover;
   }
-  img.short{
+
+  img.short {
     width: 100%;
     height: 350px;
     object-fit: cover;
-    
+
   }
 }
 
-.detail-grid-vertical{
+.detail-grid-vertical {
   width: col(16);
   margin: 0 auto 25px;
   max-width: 1200px;
   display: grid;
   gap: 25px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(2,1fr);
-  &.planos{
-    >div{
+  grid-template-rows: repeat(2, 1fr);
+
+  &.planos {
+    >div {
       border: 1px solid $lightgray;
     }
   }
-  >div{
-    width: 100%; 
+
+  >div {
+    width: 100%;
     justify-self: center;
     align-self: center;
-    img{
-      &.contain{
+
+    img {
+      &.contain {
         object-fit: contain;
       }
     }
   }
-  .a{
-    grid-row:1/3;
+
+  .a {
+    grid-row: 1/3;
   }
-  .b{
-    grid-row:1/3;
+
+  .b {
+    grid-row: 1/3;
   }
-  img.large{
+
+  img.large {
     width: 100%;
     height: 750px;
     object-fit: cover;
   }
-  img.short{
+
+  img.short {
     width: 100%;
     height: 350px;
     object-fit: cover;
-    
+
   }
 }
 
-.detail-info{
+.detail-info {
   width: col(9);
   margin: auto;
   padding: 0 col(1) col(1) col(1);
-  h3{
+
+  h3 {
     color: gray;
     text-align: center;
     margin-bottom: 25px;
   }
-  >div{
+
+  >div {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid $lightgray;
     margin-bottom: 15px;
     padding-bottom: 15px;
-    &:nth-last-of-type(1){
+
+    &:nth-last-of-type(1) {
       border-bottom: none;
     }
   }
 }
 
-.contacto{
+.contacto {
   max-width: $max-width;
   margin: 50px auto 0;
   height: 70vh;
-  h1{
+
+  h1 {
     text-align: center;
     margin-bottom: 50px;
   }
-  .cont{
+
+  .cont {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    .left{
+
+    .left {
       width: 50%;
     }
-    .right{
-      h2{
+
+    .right {
+      h2 {
         margin-top: 0;
         margin-bottom: 35px;
       }
-      form{
-        .row{
+
+      form {
+        .row {
           display: flex;
-          >div{
-            display: flex;flex-direction: column;
+
+          >div {
+            display: flex;
+            flex-direction: column;
             margin-right: 15px;
-            label{
+
+            label {
               margin-bottom: 15px;
             }
           }
-          &:last-of-type{
-              >div{
-                width: 100%;
-              }
-              margin-bottom: 15px;
+
+          &:last-of-type {
+            >div {
+              width: 100%;
+            }
+
+            margin-bottom: 15px;
           }
         }
 
-        label{
+        label {
           font-family: 'GothamBook';
         }
-        input,textarea{
+
+        input,
+        textarea {
           width: 250px;
           border-width: 0 0 1px;
           border-color: $darkgray;
         }
-        .btn{
+
+        .btn {
           margin-top: 50px;
         }
       }
@@ -653,59 +742,70 @@ footer{
   }
 }
 
-.concursos{
+.concursos {
   margin: 50px auto;
   max-width: $max-width;
-  h1{
+
+  h1 {
     text-align: center;
     margin-bottom: 50px;
   }
-  .cont{
+
+  .cont {
     display: flex;
     justify-content: space-between;
-    .left{
+
+    .left {
       width: 50%;
     }
-    .right{
+
+    .right {
       width: 50%;
       padding-left: 45px;
-      p{
+
+      p {
         margin-bottom: 25px;
       }
     }
   }
 }
 
-.nosotros{
+.nosotros {
   margin: 50px auto;
   max-width: $max-width;
-  h1{
+
+  h1 {
     text-align: center;
     margin-bottom: 25px;
   }
-  .cont{
+
+  .cont {
     display: flex;
     justify-content: space-between;
-    .left{
+
+    .left {
       width: 50%;
       position: relative;
+
       canvas {
         position: absolute;
-        width: 100%!important;
-        height: 100%!important;
+        width: 100% !important;
+        height: 70% !important;
       }
     }
-    .right{
+
+    .right {
       width: 50%;
       padding-left: 45px;
-      p{
+
+      p {
         margin-bottom: 25px;
       }
     }
   }
 }
 
-.nosotros-header{
+.nosotros-header {
   width: col(18);
   padding: 50px col(1) col(1);
   display: flex;
@@ -713,17 +813,19 @@ footer{
   align-items: center;
   justify-content: center;
   margin-bottom: 25px;
-  .title{
+
+  .title {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-  h3{
+
+  h3 {
     margin-bottom: 25px;
   }
 }
 
-.inmobiliaria{
+.inmobiliaria {
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -731,16 +833,18 @@ footer{
   align-items: center;
 }
 
-.galeria{
+.galeria {
   max-width: $max-width;
   margin: 50px auto 0;
-  
+
   display: flex;
   align-items: center;
-  .left{
+
+  .left {
     width: col(8);
   }
-  .right{
+
+  .right {
     width: col(10);
   }
 }
@@ -750,6 +854,7 @@ footer{
 
     transform: scaleY(1);
   }
+
   to {
 
     transform: scaleY(0);
@@ -760,14 +865,20 @@ footer{
   from {
     opacity: 0
   }
+
   to {
     opacity: 1
   }
 }
 
 @keyframes bounce {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 .loading-screen {
@@ -790,4 +901,3 @@ footer{
   z-index: 9999;
   pointer-events: none;
 }
-
